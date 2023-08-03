@@ -1,11 +1,17 @@
+# This replicates the Collatz conjucture where you take any number,
+#  if it's even you divide by 2, if it's odd you multiply by 3 and add 1, 
+#  and you repeat the process till you get 0
+
 import os
 import matplotlib.pyplot as plt
 
-random_Number = 307379 
+random_Number = int(input("Enter the initial value: "))
 values = []
+loop_count = 0
 
 while random_Number != 1:
 #  1 is used above to create an output, the correct number is 0 which is an infinite loop
+    loop_count += 1
     if random_Number % 2 == 0:
         even = random_Number // 2
         values.append(even)
@@ -18,10 +24,10 @@ while random_Number != 1:
 valuesString = '  ,  '.join(map(str, values))
 
 # Write the values to a text file
-with open('values-py.txt', 'w') as file:
+with open('values.txt', 'w') as file:
     file.write(valuesString)
 
-print('Values have been written to values-py.txt')
+print('Values have been written to values.txt')
 
 # Sort the array in descending order
 sorted_values = sorted(values, reverse=True)
@@ -40,4 +46,6 @@ plt.xlabel('Position in Loop')
 plt.ylabel('Number')
 plt.title('Chart of Values')
 plt.grid(True)
-plt.show()
+# plt.show()
+
+print("The loop ran",loop_count,"times")
