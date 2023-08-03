@@ -46,6 +46,6 @@ plt.xlabel('Position in Loop')
 plt.ylabel('Number')
 plt.title('Chart of Values')
 plt.grid(True)
-# plt.show()
+plt.show()
 
 print("The loop ran",loop_count,"times")
